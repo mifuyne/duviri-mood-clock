@@ -11,3 +11,11 @@ I'm still learning to use Rust, so if you spot anything weird, please let me kno
 This will eventually be a webpage that can:
 - display the information
 - allow for users to suggest new seed time and mood, in case updates or game server issues changes the mood spiral schedule
+
+## License
+
+GNU General Public License v3.0 (SPDX: GPL-3.0-or-later)
+
+At first I was going to go with the Unlicense when I was going to use primitives. But now I'm choosing to go with a more Rust(-ic? -y?) approach. There is more logic thrown into this than I initially planned as well.
+
+This license *should* allow you to host your own version of the mood clock (in case something happens to my own version). If not, please feel free to correct me and make a PR for a more suitable license!
