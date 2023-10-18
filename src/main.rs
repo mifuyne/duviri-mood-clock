@@ -1,10 +1,22 @@
 use std::env;
 use chrono::DateTime;
 
+// GLOBALS
 const MOODS: [&str; 5] = ["Fear", "Joy", "Anger", "Envy", "Sorrow"];
-const MOOD_OFFSET = 0;  // This should be adjusted via "update". How many steps away is the new seed mood from MOODS[0] (Fear)?
-const SEED_TIME: &str = "2023-10-03T16:00:00-04:00";
+
+// MOOD_OFFSET should be adjusted via "update". How many steps away is the new seed mood from MOODS[0] (Fear)?
+// const MOOD_OFFSET: &str = match option_env!("MOOD_OFFSET") {
+//     Some(val) => val,
+//     None => "0",
+// };
+
+const SEED_TIME: &str = match option_env!("SEED_TIME") {
+    Some(datetime) => datetime,
+    None => "2023-10-03T16:00:00-04:00", // the original date-time when this app's concept conceived
+};
 const SECONDS_PER_MOOD: i64 = 7200;
+
+// ------------------------
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -47,6 +59,8 @@ fn main() {
                 then this should print an error message (or panic)
               - mood should set the mood_offset value by finding the index value of `new_mood`
               - Set both the mood offset and start time (seed time?) as env values?
+            
+            - OCT 18: is an update feature appropriate if the seed data is provided at compile time via env. var.?
         */
     }
     else
