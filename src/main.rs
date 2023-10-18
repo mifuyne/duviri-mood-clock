@@ -1,6 +1,5 @@
 use std::env;
-use chrono::{DateTime, FixedOffset};
-use chrono::format::ParseError;
+use chrono::DateTime;
 
 const MOODS: [&str; 5] = ["Fear", "Joy", "Anger", "Envy", "Sorrow"];
 const MOOD_OFFSET = 0;  // This should be adjusted via "update". How many steps away is the new seed mood from MOODS[0] (Fear)?
@@ -8,17 +7,16 @@ const SEED_TIME: &str = "2023-10-03T16:00:00-04:00";
 const SECONDS_PER_MOOD: i64 = 7200;
 
 fn main() {
-
     let args: Vec<String> = env::args().collect();
     dbg!(&args);
     let (command, time_query, mood) = parse_arg(&args);
 
-    let mut unix_time: i64 = 0;
+    // let mut unix_time: i64 = 0;
 
-    // Parsing SEED_TIME as epoch time
-    if let Ok(time) = DateTime::parse_from_rfc3339(SEED_TIME) {
-        unix_time = time.timestamp();
-    }
+    // // Parsing SEED_TIME as epoch time
+    // if let Ok(time) = DateTime::parse_from_rfc3339(SEED_TIME) {
+    //     unix_time = time.timestamp();
+    // }
 
     // Command Responses
     if command == "query"
@@ -43,7 +41,7 @@ fn main() {
             // return;
         };
         println!("This is an update attempt! Updating seed with {} and {}", time_query, new_mood);
-        /**
+        /*
         TODO: write out the logic code for updating the seed time and mood.
               - if time_query is invalid (probably should use the Result<i64, ParseError> type),
                 then this should print an error message (or panic)
