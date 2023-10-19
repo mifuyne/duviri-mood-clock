@@ -6,6 +6,17 @@ If you're interested in the developer notes, feel free to peruse the older commi
 
 I'm still learning to use Rust, so if you spot anything weird, please let me know via issues, or PR if it's especially egregious.
 
+## Usage
+
+The current iteration is a commandline program. The arguments available are as follows:
+
+| arg | Description |
+| --- | ----------- |
+| query DATETIME | DATE needs to be in the following format: `%Y-%m-%dT%T%Z:00` or `%Y-%m-%dT%T%:z` |
+|                | bash: date "+%Y-%m-%dT%T%:z" |
+|                | Powershell: Get-Date -UFormat "%Y-%m-%dT%T%Z:00" |
+| | DATE can also be `now` |
+
 ## Overall Goal
 
 This will eventually be a webpage that can:
