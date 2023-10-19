@@ -1,5 +1,5 @@
 use std::env;
-use chrono::DateTime;
+use chrono::{Local, DateTime};
 
 // GLOBALS
 const MOODS: [&str; 5] = ["Fear", "Joy", "Anger", "Envy", "Sorrow"];
@@ -10,15 +10,22 @@ const MOODS: [&str; 5] = ["Fear", "Joy", "Anger", "Envy", "Sorrow"];
 //     None => "0",
 // };
 
-const SEED_TIME: &str = match option_env!("SEED_TIME") {
-    Some(datetime) => datetime,
-    None => "2023-10-03T16:00:00-04:00", // the original date-time when this app's concept conceived
-};
+const SEED_TIME: &'static str = env!("SEED_TIME", "SEED_TIME not set!");
+// const SEED_TIME: &str = match env!("SEED_TIME") {
+//     Some(datetime) => datetime,
+//     None => "2023-10-03T16:00:00-04:00", // the original date-time when this app's concept conceived
+// };
 const SECONDS_PER_MOOD: i64 = 7200;
 
 // ------------------------
 
 fn main() {
+    // Env Var check
+    // DO NOT COMPILE if the required env vars are empty or improperly set!
+    if SEED_TIME.is_empty() {
+        panic!("SEED_TIME is blank!");
+    }
+    // Checking that SEED_TIME was set properly
     let args: Vec<String> = env::args().collect();
     dbg!(&args);
     let (command, time_query, mood) = parse_arg(&args);
@@ -82,23 +89,29 @@ fn parse_arg(args: &[String]) -> (&str, i64, Option<&String>) {
 
     // RFC3339 format expected: %Y-%m-%dT%T%:z
     // Example: date "+%Y-%m-%dT%T%:z"
-
-    // Check if the seed time is already in epoch time
-    match *&args[2].parse()
-    {
-        Ok(time) => {
-            dbg!(time);
-            time_query = time;
-        },
-        Err(_) => {
-            println!("This is not in Unix timestamp format! Attempting conversion...");
-            // Seed time is not in epoch time, is it in RFC3339 format (%Y-%m-%dT%T%:z)?
-            match DateTime::parse_from_rfc3339(&args[2]) {
-                Ok(time) => time_query = time.timestamp(),
-                Err(e) => println!("[ERROR] {}: {}", e, &args[2]),
+    // 1. Check if query time is actually the keyword "now"
+    match *&args[2] == "now" {
+        true => time_query = Local::now().timestamp(),
+        false => {
+            match *&args[2].parse()
+            {
+                // 2. Check if the query time is already in epoch time
+                Ok(time) => {
+                    dbg!(time);
+                    time_query = time;
+                },
+                Err(_) => {
+                    println!("This is not in Unix timestamp format! Attempting conversion...");
+                    // Query time is not in epoch time, is it in RFC3339 format (%Y-%m-%dT%T%:z)?
+                    match DateTime::parse_from_rfc3339(&args[2]) {
+                        Ok(time) => time_query = time.timestamp(),
+                        Err(e) => println!("[ERROR] {}: {}", e, &args[2]),
+                    }
+                },
             }
-        },
+        }
     }
+
 
     (command, time_query, mood)
 }
