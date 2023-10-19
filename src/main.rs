@@ -41,6 +41,7 @@ fn main() {
     if command == "query"
     {
         println!("QUERY");
+        dbg!(SEED_TIME);
         let current_mood: usize = match which_mood(time_query) {
             e if e < SECONDS_PER_MOOD => 0,
             e if e < (SECONDS_PER_MOOD * 2) => 1,

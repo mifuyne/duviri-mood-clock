@@ -1,5 +1,7 @@
 # Duviri Mood Clock
 
+## Overview
+
 This version uses the chrono crate and applies my growing knowledge of how to extract values from Ok().
 
 If you're interested in the developer notes, feel free to peruse the older commits!
@@ -12,10 +14,12 @@ The current iteration is a commandline program. The arguments available are as f
 
 | arg | Description |
 | --- | ----------- |
-| query DATETIME | DATE needs to be in the following format: `%Y-%m-%dT%T%Z:00` or `%Y-%m-%dT%T%:z` |
-|                | bash: date "+%Y-%m-%dT%T%:z" |
-|                | Powershell: Get-Date -UFormat "%Y-%m-%dT%T%Z:00" |
+| `query DATETIME` | DATE needs to be in the following format: `%Y-%m-%dT%T%Z:00` or `%Y-%m-%dT%T%:z` |
+|                | - bash: date "+%Y-%m-%dT%T%:z" |
+|                | - Powershell: Get-Date -UFormat "%Y-%m-%dT%T%Z:00" |
 | | DATE can also be `now` |
+| | - example: `query now` |
+
 
 ## Overall Goal
 
