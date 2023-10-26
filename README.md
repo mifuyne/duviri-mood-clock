@@ -10,16 +10,7 @@ I'm still learning to use Rust, so if you spot anything weird, please let me kno
 
 ## Usage
 
-The current iteration is a commandline program. The arguments available are as follows:
-
-| arg | Description |
-| --- | ----------- |
-| `query DATETIME` | DATE needs to be in the following format: `%Y-%m-%dT%T%Z:00` or `%Y-%m-%dT%T%:z` |
-|                | - bash: date "+%Y-%m-%dT%T%:z" |
-|                | - Powershell: Get-Date -UFormat "%Y-%m-%dT%T%Z:00" |
-| | DATE can also be `now` |
-| | - example: `query now` |
-
+The current iteration should be a web page, built with Vanilla JS.
 
 ## Overall Goal
 
@@ -34,3 +25,8 @@ GNU General Public License v3.0 (SPDX: GPL-3.0-or-later)
 At first I was going to go with the Unlicense when I was going to use primitives. But now I'm choosing to go with a more Rust(-ic? -y?) approach. There is more logic thrown into this than I initially planned as well.
 
 This license *should* allow you to host your own version of the mood clock (in case something happens to my own version). If not, please feel free to correct me and make a PR for a more suitable license!
+
+## Credits
+
+Background: Photo by <a href="https://unsplash.com/@ryanklausphotography?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Ryan Klaus</a> on <a href="https://unsplash.com/photos/snow-covered-mountain-under-cloudy-sky-during-daytime-MxJje4m_J_g?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+  

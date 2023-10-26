@@ -1,2 +1,6 @@
 /target
 *.local
+
+# Generated
+pkg/
+*.css
