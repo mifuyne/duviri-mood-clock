@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Economica&family=Lato:wght@300;400;700&display=swap')
+
+@mixin centering-containers
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+
+$default-padding: 1rem !default
+
+body
+  font-family: 'Lato', sans-serif
+  font-size: 0.925rem
+  background: url("wallpaper.jpg") fixed no-repeat left top
+  height: 100vh
+  display: flex
+  padding: 0 3rem
+
+#container
+  display: flex
+  flex-direction: column
+  margin: 0 auto
+  min-height: 100vh
+  padding: $default-padding
+  box-sizing: border-box
+  background-color: rgba(0,0,0,0.1)
+  // Shadow
+  box-shadow: 0 0 10px rgba(0,0,0,0.15)
+  border: 1px solid rgba(0,0,0,0.5)
+  
+  #current
+    @include centering-containers
+    flex: 2
+    .current-header
+      font-size: 2rem
+      font-weight: 300
+      // text-align: center
+      padding: $default-padding
+      // width: 100%
+      // background-color: rgba(0, 0, 0, 0.05)
+    #current-result
+      text-align: center
+      padding: $default-padding
+      width: 100%
+      background-color: rgba(0, 0, 0, 0.05)
+      padding: calc($default-padding * 2) $default-padding
+      h1#current-mood
+        margin: 0
+        font-family: Economica
+        text-transform: uppercase
+        font-size: 4rem
+  #next
+    @include centering-containers
+    margin: 1rem auto
+    flex: 1
+    table
+      border-spacing: 0
+      thead
+        font-weight: 700
+        td
+          // border-bottom: 1px solid black
+          text-align: center
+      td:first-child
+        text-align: right
+      td
+        border-bottom: 1px solid black
+        // border: 1px solid black
+        padding: 0.5rem
+  footer
+    font-size: 0.75rem

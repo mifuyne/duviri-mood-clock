@@ -52,7 +52,7 @@ pub fn get_next_mood(datetime: &str, limit: i32) -> String {
 
         mood_list.push(MoodItem {
             time: match DateTime::from_timestamp(this_time, 0) {
-                Some(time) => time.to_string(),
+                Some(time) => time.to_rfc3339(),
                 None => "0".to_string(),
             },
             timestamp: this_time,
