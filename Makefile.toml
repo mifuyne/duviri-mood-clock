@@ -2,13 +2,13 @@
 command = "python"
 args = ["-m", "http.server"]
 
-[tasks.wasmbuild]
+[tasks.wasm-debug]
 command = "wasm-pack"
 args = ["build", "--debug", "--target", "web"]
 
-[tasks.wasmrelease]
+[tasks.wasm-release]
 command = "wasm-pack"
-args = ["build", "--release", "--target", "web", "--out-dir", "dist"]
+args = ["build", "--release", "--target", "web"]
 
 [tasks.sasswatch]
 script = "sass --watch assets/sass:assets"
@@ -31,10 +31,12 @@ args = ["-r", "assets/{main.min.css,clock.js,imgs/}", "dist/assets"]
 [tasks.copy-web]
 script = '''
 mkdir --parents dist/assets/
+mkdir --parents dist/assets/pkg
 cp src/index.html dist/index.html
 cp -r assets/{imgs,main.min.css,clock.js} dist/assets
+cp -r pkg/duviri_mood_clock_wasm{.js,_bg.wasm} dist/assets/pkg
 '''
 
 [tasks.clean-dist]
 command = "rm"
-args = ["-rf", "dist/*"]
+args = ["-rf", "dist/"]
