@@ -30,28 +30,31 @@ body
   padding: 0 3rem
   background: #333
   &.fear
-    background: fixed no-repeat url("imgs/fear-bg.jpg")
+    background: url("imgs/fear-bg.jpg") fixed no-repeat left top / cover
     background-size: cover
     color: color.adjust($fear-sass-col, $saturation: -62.5%, $lightness: 50%)
     &::after
       background-color: var(--fear-colour)
   &.joy
-    background: url("imgs/joy-bg.jpg")
+    background: url("imgs/joy-bg.jpg") fixed no-repeat left top / cover
+    background-size: cover
     color: color.adjust($joy-sass-col, $saturation: -20%, $lightness: 50%)
     &::after
       background-color: var(--joy-colour)
   &.anger
-    background: url("imgs/anger-bg.jpg")
+    background: url("imgs/anger-bg.jpg") fixed no-repeat left top / cover
+    background-size: cover
     color: color.adjust($anger-sass-col, $lightness: 50%)
     &::after
       background-color: var(--anger-colour)
   &.envy
-    background: url("imgs/envy-bg.jpg")
-    color: color.adjust($envy-sass-col, $saturation: -50%, $lightness: 50%)
+    background: url("imgs/envy-bg.jpg") fixed no-repeat left top / cover
+    color: color.adjust($envy-sass-col, $saturation: -50%, $lightness: 62.5%)
     &::after
       background-color: var(--envy-colour)
   &.sorrow
-    background: url("imgs/sorrow-bg.jpg")
+    background: url("imgs/sorrow-bg.jpg") fixed no-repeat left top / cover
+    background-size: cover
     color: color.adjust($sorrow-sass-col, $saturation: -20%, $lightness: 50%)
     &::after
       background-color: var(--sorrow-colour)
