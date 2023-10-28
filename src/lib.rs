@@ -26,7 +26,11 @@ pub fn get_current_mood() -> String {
     };
     // TODO: Logic for determining current mood
     let serialized =
-        serde_json::to_string(&curr_mood).expect("[ERROR] Current mood cannot be serialized!");
+        // serde_json::to_string(&curr_mood).expect("[ERROR] Current mood cannot be serialized!");
+        match serde_json::to_string(&curr_mood) {
+            Ok(res) => res,
+            Err(e) => e.to_string(),
+        };
 
     format!("{}", serialized)
 }
