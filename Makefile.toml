@@ -8,7 +8,33 @@ args = ["build", "--debug", "--target", "web"]
 
 [tasks.wasmrelease]
 command = "wasm-pack"
-args = ["build", "--release", "--target", "web"]
+args = ["build", "--release", "--target", "web", "--out-dir", "dist"]
+
+[tasks.sasswatch]
+script = "sass --watch assets/sass:assets"
 
 [tasks.sasspile]
-script = "sass --watch assets/sass:assets"
+script = "grass --style compressed assets/sass/main.sass assets/main.min.css"
+
+[tasks.make-folders]
+command = "mkdir"
+args = ["-p", "dist/assets/"]
+
+[tasks.copy-index]
+command = "cp"
+args = ["src/index.html", "dist/index.html"]
+
+[tasks.copy-assets]
+command = "cp"
+args = ["-r", "assets/{main.min.css,clock.js,imgs/}", "dist/assets"]
+
+[tasks.copy-web]
+script = '''
+mkdir --parents dist/assets/
+cp src/index.html dist/index.html
+cp -r assets/{imgs,main.min.css,clock.js} dist/assets
+'''
+
+[tasks.clean-dist]
+command = "rm"
+args = ["-rf", "dist/*"]
