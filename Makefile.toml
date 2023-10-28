@@ -6,5 +6,9 @@ args = ["-m", "http.server"]
 command = "wasm-pack"
 args = ["build", "--debug", "--target", "web"]
 
+[tasks.wasmrelease]
+command = "wasm-pack"
+args = ["build", "--release", "--target", "web"]
+
 [tasks.sasspile]
 script = "sass --watch assets/sass:assets"

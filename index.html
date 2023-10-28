@@ -1,22 +1,27 @@
 <!doctype html>
 <html lang="en-US">
   <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <title>hello-wasm example</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/main.css">
   </head>
   <body>
     <div id="container">
       <div id="current">
-        <div class="current-header">Duviri Mood Spiral</div>
+        <div class="faux-header">Duviri Mood Spiral</div>
         <div id="current-result">
           <h1 id="current-mood"></h1>
           <div id="current-time"></div>
+          <button aria-label="Refresh" id="btn-refresh" title="Refresh Current Mood">
+            <i class="fa fa-refresh"></i>
+          </button>
         </div>
       </div>
       <div id="next">
+        <div class="faux-header">Coming Up Next</div>
         <table>
           <thead>
             <tr>
@@ -29,8 +34,14 @@
           </tbody>
         </table>
       </div>
+      <div class="github-repo">
+        <a href="https://github.com/mifuyne/duviri-mood-clock/" target="_blank" title="Visit the repo on Github!">
+          <i class="fa fa-github fa-2x"></i>
+        </a>
+      </div>
       <footer>
-        <a href="https://creativecommons.org/licenses/by-sa/4.0/" title="Creative Commons - Attribution-ShareAlike 4.0 International">CC BY-SA</a> 2023 Mifuyne. Warframe is the intellectual property of Digital Extremes.
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/" title="Creative Commons - Attribution-ShareAlike 4.0 International"><i class="fa fa-creative-commons"></i></a> 2023 <a href="https://mifuyne.com/">Mifuyne</a>.
+        <a href="https://www.warframe.com/" title="Warframe">Warframe</a> is the intellectual property of <a href="https://www.digitalextremes.com/" title="Digital Extremes">Digital Extremes</a>.
       </footer>
     </div>
 

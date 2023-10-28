@@ -15,8 +15,13 @@ The current iteration should be a web page, built with Vanilla JS.
 ## Overall Goal
 
 This will eventually be a webpage that can:
-- display the information
-- allow for users to suggest new seed time and mood, in case updates or game server issues changes the mood spiral schedule
+- display the current mood
+- display subsequent moods
+
+## Future Goal
+
+- allow the user to change the amount of future moods is shown
+- replace the images with game-appropriate ones
 
 ## License
 
@@ -28,5 +33,10 @@ This license *should* allow you to host your own version of the mood clock (in c
 
 ## Credits
 
-Background: Photo by <a href="https://unsplash.com/@ryanklausphotography?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Ryan Klaus</a> on <a href="https://unsplash.com/photos/snow-covered-mountain-under-cloudy-sky-during-daytime-MxJje4m_J_g?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+Background Photos:
+- Fear: Photo by <a href="https://unsplash.com/@clintnaik?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Clinton Naik</a> on <a href="https://unsplash.com/photos/lightnings-during-nighttime-NcTQ602gKLI?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+- Sorrow: Photo by <a href="https://unsplash.com/@clorisyy?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Cloris Ying</a> on <a href="https://unsplash.com/photos/snow-covered-trees-during-daytime-J1LYc-oMA4k?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+- Envy: Photo by <a href="https://unsplash.com/@wizard_s?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Runze Shi</a> on <a href="https://unsplash.com/photos/green-leafed-plant-1kIyfRdLMxI?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+- Anger: Photo by <a href="https://unsplash.com/@raquelraclette?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">raquel raclette</a> on <a href="https://unsplash.com/photos/red-flame-MYjFOiVWWT8?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+- Joy: Photo by <a href="https://unsplash.com/@ninjason?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Jason Leung</a> on <a href="https://unsplash.com/photos/selective-focus-photography-of-multicolored-confetti-lot-Xaanw0s0pMk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
   
