@@ -4,7 +4,6 @@ use serde_json;
 use wasm_bindgen::prelude::*;
 
 const ENV_SEED_TIME: &'static str = env!("SEED_TIME", "SEED_TIME not set!");
-const ENV_MOOD_OFFSET: &'static str = env!("MOOD_OFFSET", "MOOD_OFFSET not set!");
 const ENV_SECONDS_PER_MOOD: &'static str = env!("SECONDS_PER_MOOD", "SECONDS_PER_MOOD not set!");
 pub const MOODS: [&str; 5] = ["Fear", "Joy", "Anger", "Envy", "Sorrow"];
 
@@ -66,16 +65,6 @@ pub fn get_next_mood(datetime: &str, limit: i32) -> String {
 }
 
 // INTERNAL FUNCTIONS
-
-// Convert to Epoch (Unix) time
-fn get_epoch_time(datetime: String) -> String {
-    // Is datetime in the proper format (%Y-%m-%dT%T%:z)
-    match DateTime::parse_from_rfc3339(&datetime) {
-        Ok(time) => return format!("{}", time.timestamp()),
-        Err(e) => return format!("[ERROR] {}: {}", e, datetime),
-    }
-}
-
 // Get mood based on timestamp provided
 #[wasm_bindgen]
 pub fn which_mood(timestamp: i64) -> usize {
