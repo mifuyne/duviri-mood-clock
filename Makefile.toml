@@ -1,0 +1,14 @@
+[tasks.server]
+command = "python"
+args = ["-m", "http.server"]
+
+[tasks.wasmbuild]
+command = "wasm-pack"
+args = ["build", "--debug", "--target", "web"]
+
+[tasks.wasmrelease]
+command = "wasm-pack"
+args = ["build", "--release", "--target", "web"]
+
+[tasks.sasspile]
+script = "sass --watch assets/sass:assets"
