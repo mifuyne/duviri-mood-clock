@@ -1,6 +1,8 @@
 # Duviri Mood Clock
 v.0.1.1
 
+![Duviri Mood Clock deployment test](https://github.com/mifuyne/duviri-mood-clock/actions/workflows/rust-wasm-build.yml/badge.svg) [![Build Status](https://badges.netlify.com/api/duviri-clock.mifuyne.com.svg?branch=main)](https://duviri-clock.mifuyne.com/)
+
 ## Overview
 
 This version uses the chrono crate and applies my growing knowledge of how to extract values from Ok().
