@@ -32,7 +32,8 @@ pub fn get_current_mood() -> String {
     };
     // TODO: Logic for determining current mood
     let serialized =
-        serde_json::to_string(&curr_mood).expect("[ERROR] Current mood cannot be serialized!");
+        serde_json::to_string(&curr_mood)
+        .expect("[ERROR] Current mood cannot be serialized!");
 
     format!("{}", serialized)
 }
@@ -67,7 +68,8 @@ pub fn get_next_mood(datetime: &str, limit: i32) -> String {
         });
     }
 
-    let serialized = serde_json::to_string(&mood_list).expect("Cannot serialize!");
+    let serialized = serde_json::to_string(&mood_list)
+        .expect("Cannot serialize!");
 
     format!("{}", serialized)
 }
@@ -81,13 +83,14 @@ pub fn which_mood(timestamp: i64) -> usize {
         start_time = time.timestamp();
     }
 
-    // TODO: Guard against start_time being a 0. Leverage Result.
-    // Converting the ENV_SECONDS_PER_MOOD from &str to usize (to match MOODS.len() value type)
+    // Converting the ENV_SECONDS_PER_MOOD from &str to usize
+    //   (to match MOODS.len() value type)
     let seconds_per_mood: usize = ENV_SECONDS_PER_MOOD
         .parse::<usize>()
         .expect("[ERROR]: Cannot parse ENV_SECONDS_PER_MOOD");
 
-    // Get the time difference between now and SEED_TIME, within the 7200 seconds range
+    // Get the time difference between now
+    //   and SEED_TIME, within the 7200 seconds range
     let time_diff = ((timestamp - start_time) as usize) % (seconds_per_mood * MOODS.len());
 
     // Convert the time difference to match the index value of MOODS
@@ -105,5 +108,6 @@ pub fn which_mood(timestamp: i64) -> usize {
 fn get_next_shift(datetime: &str) -> i64 {
     let curr_time = datetime.to_owned().parse::<i64>().unwrap();
 
+    // Get the amount to add to current time so we get the closest mood shift time
     curr_time + (7200 - (curr_time % 7200))
 }
