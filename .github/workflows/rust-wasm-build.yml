@@ -1,4 +1,4 @@
-name: Rust
+name: Duviri Mood Clock
 
 on:
   push:
