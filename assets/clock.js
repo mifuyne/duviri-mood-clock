@@ -1,4 +1,4 @@
-import init, * as wasm from "./pkg/duviri_mood_clock_wasm.js";
+import init, * as wasm from "../pkg/duviri_mood_clock_wasm.js";
 init().then(() => {
   // Current mood
   const datetime_fmt = new Intl.DateTimeFormat("en", {
