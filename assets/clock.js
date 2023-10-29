@@ -1,4 +1,4 @@
-import init, * as wasm from "./pkg/duviri_mood_clock_wasm.js";
+import init, * as wasm from "/pkg/duviri_mood_clock_wasm.js";
 init().then(() => {
   // Current mood
   const datetime_fmt = new Intl.DateTimeFormat("en", {
@@ -25,8 +25,6 @@ init().then(() => {
     const next_moods = JSON.parse(wasm.get_next_mood((Date.now() / 1000).toFixed(), 3));
     const tbody = document.getElementById("next").querySelector("table > tbody")
     const template = document.querySelector("template#mood-row")
-
-    console.log(next_moods)
 
     for (let mood of next_moods) {
       const clone = template.content.cloneNode(true)

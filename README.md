@@ -22,6 +22,7 @@ This will eventually be a webpage that can:
 
 - allow the user to change the amount of future moods is shown
 - replace the images with game-appropriate ones
+- tests for deployment
 
 ## License
 
