@@ -21,7 +21,7 @@ jobs:
       uses: jetli/wasm-pack-action@v0.4.0
       with:
         # Optional version of wasm-pack to install (eg. "v0.9.1", "latest")
-        version: 0.12.1 # optional, default is latest
+        version: v0.12.1 # optional, default is latest
     - name: rust-cargo-make
       # You may pin to the exact commit or the version.
       # uses: davidB/rust-cargo-make@10579dcff82285736fad5291533b52d3c93d6b3b
