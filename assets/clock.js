@@ -26,8 +26,6 @@ init().then(() => {
     const tbody = document.getElementById("next").querySelector("table > tbody")
     const template = document.querySelector("template#mood-row")
 
-    console.log(next_moods)
-
     for (let mood of next_moods) {
       const clone = template.content.cloneNode(true)
       let td = clone.querySelectorAll("td")
