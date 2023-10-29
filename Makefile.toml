@@ -24,8 +24,8 @@ cp src/index.html dist/index.html
 cp -R assets/imgs dist/assets
 cp -R assets/clock.js dist/assets/
 cp -R assets/main.min.css dist/assets/
-cp -R pkg/duviri_mood_clock_wasm.js dist/assets/pkg
-cp -R pkg/duviri_mood_clock_wasm_bg.wasm dist/assets/pkg
+cp -R pkg/duviri_mood_clock_wasm.js dist/assets/pkg/
+cp -R pkg/duviri_mood_clock_wasm_bg.wasm dist/assets/pkg/
 '''
 
 [tasks.deploy]
