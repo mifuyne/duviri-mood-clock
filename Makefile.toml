@@ -1,0 +1,42 @@
+[tasks.server]
+command = "python"
+args = ["-m", "http.server"]
+
+[tasks.wasm-debug]
+command = "wasm-pack"
+args = ["build", "--debug", "--target", "web"]
+
+[tasks.wasm-release]
+command = "wasm-pack"
+args = ["build", "--release", "--target", "web", ]
+
+[tasks.sasswatch]
+script = "sass --watch assets/sass:assets"
+
+[tasks.sasspile]
+script = "grass --style compressed assets/sass/main.sass assets/main.min.css"
+
+[tasks.copy-web]
+script = '''
+mkdir --parents dist/assets/
+mkdir --parents dist/assets/pkg
+cp src/index.html dist/index.html
+cp -R assets/imgs dist/assets
+cp -R assets/clock.js dist/assets/
+cp -R assets/main.min.css dist/assets/
+cp -R pkg/duviri_mood_clock_wasm.js dist/assets/pkg
+cp -R pkg/duviri_mood_clock_wasm_bg.wasm dist/assets/pkg
+'''
+
+[tasks.deploy]
+dependencies = [
+  "sasspile",
+  "wasm-release",
+  "copy-web"
+]
+
+[tasks.clean-dist]
+script = '''
+rm -rf dist/
+cargo clean
+'''

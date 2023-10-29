@@ -1,2 +1,7 @@
 /target
-*.local
+*.local*
+/dist
+
+# Generated
+pkg/
+*.css*
