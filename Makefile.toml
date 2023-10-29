@@ -36,8 +36,6 @@ dependencies = [
 ]
 
 [tasks.clean-dist]
-command = "rm"
-args = ["-rf", "dist/"]
 script = '''
 rm -rf dist/
 cargo clean
