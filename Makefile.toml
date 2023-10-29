@@ -8,7 +8,7 @@ args = ["build", "--debug", "--target", "web"]
 
 [tasks.wasm-release]
 command = "wasm-pack"
-args = ["build", "--release", "--target", "web"]
+args = ["build", "--release", "--target", "web", ]
 
 [tasks.sasswatch]
 script = "sass --watch assets/sass:assets"
@@ -33,10 +33,14 @@ script = '''
 mkdir --parents dist/assets/
 mkdir --parents dist/assets/pkg
 cp src/index.html dist/index.html
-cp -r assets/{imgs,main.min.css,clock.js} dist/assets
-cp -r pkg/duviri_mood_clock_wasm{.js,_bg.wasm} dist/assets/pkg
+cp -R assets/{imgs,main.min.css,clock.js} dist/assets
+cp -R pkg/duviri_mood_clock_wasm{.js,_bg.wasm} dist/assets/pkg
 '''
 
 [tasks.clean-dist]
 command = "rm"
 args = ["-rf", "dist/"]
+script = '''
+rm -rf dist/
+cargo clean
+'''
