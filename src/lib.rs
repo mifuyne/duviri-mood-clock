@@ -1,7 +1,11 @@
+extern crate console_error_panic_hook;
+
 use chrono::{DateTime, Utc};
 use serde::Serialize;
 use serde_json;
 use wasm_bindgen::prelude::*;
+
+use std::panic;
 
 const ENV_SEED_TIME: &'static str = env!("SEED_TIME", "SEED_TIME not set!");
 const ENV_SECONDS_PER_MOOD: &'static str = env!("SECONDS_PER_MOOD", "SECONDS_PER_MOOD not set!");
@@ -16,6 +20,8 @@ struct MoodItem {
 
 #[wasm_bindgen]
 pub fn get_current_mood() -> String {
+    panic::set_hook(Box::new(console_error_panic_hook::hook));
+
     let curr_time = Utc::now();
     let mood_now = format!(r#"{}"#, MOODS[which_mood(curr_time.timestamp())]);
 
@@ -33,6 +39,8 @@ pub fn get_current_mood() -> String {
 
 #[wasm_bindgen]
 pub fn get_next_mood(datetime: &str, limit: i32) -> String {
+    panic::set_hook(Box::new(console_error_panic_hook::hook));
+
     let next_timestamp = get_next_shift(datetime);
     let mut mood_list: Vec<MoodItem> = Vec::new();
     let seconds_per_mood = ENV_SECONDS_PER_MOOD
