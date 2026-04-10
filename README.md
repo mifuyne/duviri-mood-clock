@@ -1,3 +1,7 @@
+The codebase can now be found at https://codeberg.org/mifuyne/duviri-mood-clock
+
+---
+
 # Duviri Mood Clock
 v.0.1.1
 
